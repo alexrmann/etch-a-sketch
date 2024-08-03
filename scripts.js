@@ -12,15 +12,10 @@ const textComputer = document.querySelector
 ("#computer");
 
 // Buttons
-const buttons = document.querySelector("#buttons");
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
+const newGridBtn = document.querySelector("#new-grid-btn");
 
-// add a "Play Again" button to the #buttons div
-const playAgainBtn = document.createElement("button");
-playAgainBtn.textContent = "Play Again";
-playAgainBtn.addEventListener("click", resetGame);
+// add text content to an element
+// elementName.textContent = "Text content goes here";
 
 /*
 INITIALIZE PARAMETERS
@@ -47,6 +42,9 @@ scissors.addEventListener("click", () => playGame(choices[2]));
 /*
 HANDLE EVENTS
 */
+
+// User clicks new grid button
+newGridBtn.addEventListener("click", newGrid);
 
 /*
 DEFINE FUNCTIONS
@@ -183,7 +181,7 @@ function playAgain() {
     buttons.appendChild(playAgainBtn);
 }
 
-function resetGame() {
+function newGrid() {
     console.log("New game started.")
 
     // Reset the current round to 1
