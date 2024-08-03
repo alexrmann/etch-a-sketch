@@ -47,17 +47,18 @@ INITIALIZE PARAMETERS
 HANDLE EVENTS
 */
 
-// User wants to add a new grid
+// When user clicks "Create New Grid" button
 newGridBtn.addEventListener("click", newGrid);
 
 // Add click listener to button that runs an arrow function
-// rock.addEventListener("click", () => playGame(choices[0]));
+// rock.addEventListener("click", () => doSomething);
 
 
 /*
 DEFINE FUNCTIONS
 */
 
+/*
 function playGame(playerChoice) {
 
     // Log clicks to console
@@ -188,9 +189,10 @@ function playAgain() {
     // show the play again button
     buttons.appendChild(playAgainBtn);
 }
+*/
 
 function newGrid() {
-    console.log("New game started.")
+    console.log("New grid button clicked.")
 
     // Reset the current round to 1
     currentRound = 1;
@@ -214,5 +216,7 @@ function newGrid() {
     buttons.appendChild(rock);
     buttons.appendChild(paper);
     buttons.appendChild(scissors);
+
+    console.log("Finished creating new grid.")
 
 }

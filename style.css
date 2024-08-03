@@ -30,3 +30,7 @@ summary,
     align-items: center;
     justify-content: center; 
 }
+
+.flex-col {
+    flex-direction: column;
+}
