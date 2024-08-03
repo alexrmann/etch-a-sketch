@@ -1,20 +1,33 @@
 /* 
-DECLARE ELEMENTS
+ASSIGN ELEMENTS TO CONSTANTS
 */
 
-// Status Readouts
-const round = document.querySelector("#round");
-const gameStatus = document.querySelector("#status");
-const gameResult = document.querySelector("#game-result");
-const roundResult = document.querySelector("#round-result");
-const textPlayer = document.querySelector("#player");
-const textComputer = document.querySelector
-("#computer");
+// Assign first element with tag name
+// const nameOfElement = document.querySelector("tag");
+
+// Assign all elements with tag name
+// const nameOfElement = document.querySelectorAll("tag");
+
+// Assign first element with class
+// const nameOfElement = document.querySelector(".class-name");
+
+// Assign all elements with class
+// const nameOfElement = document.querySelectorAll(".class-name");
+
+// Assign element by id name
+// const nameOfElement = document.querySelector("#id-name");
 
 // Buttons
 const newGridBtn = document.querySelector("#new-grid-btn");
 
-// add text content to an element
+/* 
+INJECT CONTENT
+*/
+
+// Create an html element
+// const nameOfElement = document.createElement("div");
+
+// Add text content to an element
 // elementName.textContent = "Text content goes here";
 
 /*
