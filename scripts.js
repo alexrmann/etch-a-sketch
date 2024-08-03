@@ -34,30 +34,25 @@ INJECT CONTENT
 INITIALIZE PARAMETERS
 */
 
-// INIT choices
-const choices = ['Rock', 'Paper', 'Scissors'];
+// INIT an array
+// const choices = [itemA, itemB, ...];
 
-// INIT player and computer scores
-let playerScore = 0;
-let computerScore = 0; 
+// INIT a mutable variable
+// let variableName;
 
-// INIT round counter and game result
-let currentRound = 1; 
-
-/*
-CREATE THE SKETCHPAD
-*/
-
-rock.addEventListener("click", () => playGame(choices[0])); 
-paper.addEventListener("click", () => playGame(choices[1])); 
-scissors.addEventListener("click", () => playGame(choices[2]));
+// INIT a mutable variable with an initial value
+// let variableName = 0; 
 
 /*
 HANDLE EVENTS
 */
 
-// User clicks new grid button
+// User wants to add a new grid
 newGridBtn.addEventListener("click", newGrid);
+
+// Add click listener to button that runs an arrow function
+// rock.addEventListener("click", () => playGame(choices[0]));
+
 
 /*
 DEFINE FUNCTIONS
