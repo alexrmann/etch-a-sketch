@@ -18,7 +18,7 @@ ASSIGN ELEMENTS TO CONSTANTS
 // const nameOfElement = document.querySelector("#id-name");
 
 // Buttons
-const newGridBtn = document.querySelector("#new-grid-btn");
+const gridBtn = document.querySelector("#grid-btn");
 
 /* 
 INJECT CONTENT
@@ -34,7 +34,7 @@ INJECT CONTENT
 INITIALIZE PARAMETERS
 */
 
-const sketchPad = document.getElementById("sketch-pad");
+const sketchPad = document.getElementById("sketchpad");
 const sketchPadSize = sketchPad.offsetWidth;
 
 const gridMsg = document.querySelectorAll("grid-msg");
@@ -50,7 +50,7 @@ HANDLE EVENTS
 */
 
 // When user clicks "Create New Grid" button
-newGridBtn.addEventListener("click", newGrid);
+gridBtn.addEventListener("click", newGrid());
 
 // Add click listener to button that runs an arrow function
 // rock.addEventListener("click", () => doSomething);
@@ -197,12 +197,12 @@ function newGrid() {
     console.log("New grid button clicked.")
 
     // Prompt user for new grid
-    let userSquares = prompt("Type the number of squares per side:", "Max: 100");
+    let userSquares = prompt("Type the number of squares per side (max. 100):", "100");
 
     // If cancel, allow user to return. Else if no input or value > 100, re-prompt. Else, setup grid with the value.
     if (userSquares === null) {
         return;
-    } else if (userSquares === "" || userSquares > 100) {
+    } else if (userSquares === "" || userSquares === 0 || userSquares > 100) {
         newGrid();
     } else {
         setupGrid(userSquares);

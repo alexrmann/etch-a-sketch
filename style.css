@@ -35,7 +35,13 @@ summary,
     flex-direction: column;
 }
 
+#grid-status {
+    margin: 1em 0;
+}
+
 #sketchpad {
+    display: flex;
+    gap: 1px;
     width: 960px;
     height: 960px;
     background: gray;
