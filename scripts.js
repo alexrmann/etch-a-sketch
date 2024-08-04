@@ -228,6 +228,9 @@ function setupGrid(userInput) {
 }
 
 function drawGrid(gridSize) {
+
+    console.log("Drawing new grid...")
+
     // Calculate the grid square size
     let squareSize = sketchPadSize / gridSize;
     
@@ -236,6 +239,6 @@ function drawGrid(gridSize) {
         let newSquare = document.createElement("div");
         newSquare.offsetHeight = squareSize;
         newSquare.offsetWidth = squareSize;
-        sketchPad.append(gridArray);
+        sketchPad.append(newSquare);
     }
 }
