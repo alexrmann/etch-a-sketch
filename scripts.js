@@ -195,7 +195,7 @@ function newGrid() {
     // If cancel, allow user to return. Else if no input or value > 100, re-prompt. Else, setup grid with the value.
     if (userSquares === null) {
         return;
-    } else if (userSquares === "" || userSquares === 0 || userSquares > 100) {
+    } else if (userSquares === "" || userSquares == 0 || userSquares > 100) {
         newGrid();
     } else {
         setupGrid(userSquares);
