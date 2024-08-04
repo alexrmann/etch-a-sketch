@@ -37,7 +37,8 @@ INITIALIZE PARAMETERS
 const sketchPad = document.getElementById("sketch-pad");
 const sketchPadSize = sketchPad.offsetWidth;
 
-const gridMsg = document.getElementById("grid-msg");
+const gridMsg = document.querySelectorAll("grid-msg");
+
 // INIT an array
 let gridArray = [];
 
@@ -222,7 +223,7 @@ function setupGrid(userInput) {
     buttons.appendChild(scissors); */
 
     // Change grid message
-    gridMsg.textContent = "Grid size: " squares + " x " + squares;
+    gridMsg.textContent = userInput;
 
     console.log("Finished creating new grid.")
 
