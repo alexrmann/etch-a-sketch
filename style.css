@@ -46,3 +46,7 @@ summary,
     height: 960px;
     background: gray;
 }
+
+.grid-square {
+    background: whitesmoke;
+}

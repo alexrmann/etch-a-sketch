@@ -231,14 +231,15 @@ function setupGrid(userInput) {
 
 function drawGrid(gridSize) {
 
-    console.log("Drawing new grid...")
+    console.log("Drawing new grid with square size " + gridSize + "...")
 
     // Calculate the grid square size
     let squareSize = sketchPadSize / gridSize;
     
     // Create each grid square and append to the sketch pad
-    for (let i; i <= gridSize; i++) {
+    for (let i = 1; i <= gridSize; i++) {
         let newSquare = document.createElement("div");
+        newSquare.classList.add("grid-square");
         newSquare.offsetHeight = squareSize;
         newSquare.offsetWidth = squareSize;
         sketchPad.appendChild(newSquare);
