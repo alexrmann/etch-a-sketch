@@ -239,6 +239,6 @@ function drawGrid(gridSize) {
         let newSquare = document.createElement("div");
         newSquare.offsetHeight = squareSize;
         newSquare.offsetWidth = squareSize;
-        sketchPad.append(newSquare);
+        sketchPad.appendChild(newSquare);
     }
 }
