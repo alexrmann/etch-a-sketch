@@ -34,14 +34,13 @@ INJECT CONTENT
 INITIALIZE PARAMETERS
 */
 
+const sketchPad = document.getElementById("sketch-pad");
+
 // INIT an array
-// const choices = [itemA, itemB, ...];
+const sketchArray = [];
 
-// INIT a mutable variable
-// let variableName;
-
-// INIT a mutable variable with an initial value
-// let variableName = 0; 
+// INIT the number of grid squares per side
+let gridSize = 100;
 
 /*
 HANDLE EVENTS
@@ -195,38 +194,27 @@ function newGrid() {
     console.log("New grid button clicked.")
 
     // Prompt user for new grid
-    let squares = prompt("Type the number of squares per side:", "Max: 100");
+    let userSquares = prompt("Type the number of squares per side:", "Max: 100");
 
-    if (squares == null || squares == "") {
-        document.getElementById("msg").innerHTML = "You did not entert anything. Please enter your name again";
-    }
-    else
-    {
-        setupGrid();
+    // If cancel, allow user to return. Else if no input or value > 100, re-prompt. Else, setup grid with the value.
+    if (userSquares === null) {
+        return;
+    } else if (userSquares === "" || userSquares > 100) {
+        newGrid();
+    } else {
+        setupGrid(userSquares);
     }
 }
 
 function setupGrid() {
 
-    // Remove sketch pad
+    // Remove existing sketch pad
     sketchPad.remove();
 
-    /* // Reset the current round to 1
-    currentRound = 1;
-    round.textContent = "Select an option to begin.";
-    gameResult.textContent = "";
-    gameStatus.textContent = "";
+    // Run a function that draws the new sketch pad
+    drawGrid();
 
-    // Reset player scores
-    playerScore = 0;
-    computerScore = 0;
-
-    // Clear the scorecard
-    textPlayer.textContent = "";
-    textComputer.textContent = "";
-    roundResult.textContent = "";
-
-    // Re-add rock, paper, scissors buttons
+    /* // Re-add rock, paper, scissors buttons
     buttons.appendChild(rock);
     buttons.appendChild(paper);
     buttons.appendChild(scissors); */
@@ -236,4 +224,9 @@ function setupGrid() {
 
     console.log("Finished creating new grid.")
 
+}
+
+function drawGrid() {
+    // Do something to the sketch pad
+    sketchPad.append;
 }
