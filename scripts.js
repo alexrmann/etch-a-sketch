@@ -49,6 +49,8 @@ let gridSize = 100;
 HANDLE EVENTS
 */
 
+// For some reason, this is running on page load and won't run when clicked.
+
 // When user clicks "Create New Grid" button
 gridBtn.addEventListener("click", newGrid());
 
@@ -181,16 +183,7 @@ function endGameCheck() {
 
 }
 
-function playAgain() {
-    // remove the rock, paper, scissors buttons
-    rock.remove();
-    paper.remove();
-    scissors.remove();
-    //scissors.style.display = "none";
 
-    // show the play again button
-    buttons.appendChild(playAgainBtn);
-}
 */
 
 function newGrid() {
