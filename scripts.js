@@ -209,8 +209,8 @@ function newGrid() {
 
 function setupGrid(userInput) {
 
-    // Remove existing sketch pad
-    sketchPad.remove();
+    // Remove content from the existing sketch pad
+    sketchPad.innerHTML = "";
 
     // Run a function that draws the new sketch pad
     drawGrid(userInput);
