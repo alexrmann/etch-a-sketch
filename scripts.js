@@ -194,7 +194,24 @@ function playAgain() {
 function newGrid() {
     console.log("New grid button clicked.")
 
-    // Reset the current round to 1
+    // Prompt user for new grid
+    let squares = prompt("Type the number of squares per side:", "Max: 100");
+
+    if (squares == null || squares == "") {
+        document.getElementById("msg").innerHTML = "You did not entert anything. Please enter your name again";
+    }
+    else
+    {
+        setupGrid();
+    }
+}
+
+function setupGrid() {
+
+    // Remove sketch pad
+    sketchPad.remove();
+
+    /* // Reset the current round to 1
     currentRound = 1;
     round.textContent = "Select an option to begin.";
     gameResult.textContent = "";
@@ -209,13 +226,13 @@ function newGrid() {
     textComputer.textContent = "";
     roundResult.textContent = "";
 
-    // Remove play again button
-    playAgainBtn.remove();
-
     // Re-add rock, paper, scissors buttons
     buttons.appendChild(rock);
     buttons.appendChild(paper);
-    buttons.appendChild(scissors);
+    buttons.appendChild(scissors); */
+
+    // Change grid message
+    document.getElementById("grid-msg").textContent = "Grid size: " squares + " x " + squares;
 
     console.log("Finished creating new grid.")
 
