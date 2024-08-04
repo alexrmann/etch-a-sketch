@@ -35,9 +35,10 @@ INITIALIZE PARAMETERS
 */
 
 const sketchPad = document.getElementById("sketch-pad");
+const sketchPadSize = sketchPad.offsetWidth;
 
 // INIT an array
-const sketchArray = [];
+let gridArray = [];
 
 // INIT the number of grid squares per side
 let gridSize = 100;
@@ -206,13 +207,13 @@ function newGrid() {
     }
 }
 
-function setupGrid() {
+function setupGrid(userInput) {
 
     // Remove existing sketch pad
     sketchPad.remove();
 
     // Run a function that draws the new sketch pad
-    drawGrid();
+    drawGrid(userInput);
 
     /* // Re-add rock, paper, scissors buttons
     buttons.appendChild(rock);
@@ -226,7 +227,15 @@ function setupGrid() {
 
 }
 
-function drawGrid() {
-    // Do something to the sketch pad
-    sketchPad.append(gridArray);
+function drawGrid(gridSize) {
+    // Calculate the grid square size
+    let squareSize = sketchPadSize / gridSize;
+    
+    // Create each grid square and append to the sketch pad
+    for (let i; i <= gridSize; i++) {
+        let newSquare = document.createElement("div");
+        newSquare.offsetHeight = squareSize;
+        newSquare.offsetWidth = squareSize;
+        sketchPad.append(gridArray);
+    }
 }
