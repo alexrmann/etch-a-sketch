@@ -228,5 +228,5 @@ function setupGrid() {
 
 function drawGrid() {
     // Do something to the sketch pad
-    sketchPad.append;
+    sketchPad.append(gridArray);
 }
