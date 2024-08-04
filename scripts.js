@@ -237,7 +237,7 @@ function setupGrid(userInput) {
 
 function drawGrid(gridSize) {
 
-    console.log("Drawing new grid with square size " + gridSize + "...")
+    console.log("Drawing new grid with " + gridSize + " squares per side...")
 
     // Calculate the grid square size
     let squareSize = sketchPadSize / gridSize;
@@ -256,7 +256,6 @@ function drawGrid(gridSize) {
     for(let i = 0; i < stylesheet.cssRules.length; i++) {
         if(stylesheet.cssRules[i].selectorText === '.grid-square') {
             gridSquareRules = stylesheet.cssRules[i];
-            console.log(gridSquareRules);
         }
     }
 
