@@ -49,10 +49,11 @@ let gridSize = 100;
 HANDLE EVENTS
 */
 
-// For some reason, this is running on page load and won't run when clicked.
+// Draw grid on load
+drawGrid(gridSize);
 
 // When user clicks "Create New Grid" button
-gridBtn.addEventListener("click", newGrid());
+gridBtn.addEventListener("click", newGrid);
 
 // Add click listener to button that runs an arrow function
 // rock.addEventListener("click", () => doSomething);
