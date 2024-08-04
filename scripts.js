@@ -33,17 +33,21 @@ INJECT CONTENT
 /*
 INITIALIZE PARAMETERS
 */
+const stylesheet = document.styleSheets[0];
+console.log(stylesheet);
 
 const sketchPad = document.getElementById("sketchpad");
 const sketchPadSize = sketchPad.offsetWidth;
 
 const gridMsg = document.querySelectorAll("grid-msg");
 
+const gridSquares = document.querySelectorAll("grid-square");
+
 // INIT an array
 let gridArray = [];
 
 // INIT the number of grid squares per side
-let gridSize = 100;
+let gridSize = 16;
 
 /*
 HANDLE EVENTS
@@ -54,6 +58,14 @@ drawGrid(gridSize);
 
 // When user clicks "Create New Grid" button
 gridBtn.addEventListener("click", newGrid);
+
+Array.from(gridSquares).forEach(square => square.addEventListener("mouseover", this.style.backgroundColor = 'black'))
+
+/* 
+() => changeColor
+function changeColor() {  
+   this.setAttribute("style", "background-color:black;")
+} */
 
 // Add click listener to button that runs an arrow function
 // rock.addEventListener("click", () => doSomething);
@@ -229,13 +241,35 @@ function drawGrid(gridSize) {
 
     // Calculate the grid square size
     let squareSize = sketchPadSize / gridSize;
+    console.log(squareSize);
     
     // Create each grid square and append to the sketch pad
     for (let i = 1; i <= gridSize; i++) {
         let newSquare = document.createElement("div");
         newSquare.classList.add("grid-square");
-        newSquare.offsetHeight = squareSize;
-        newSquare.offsetWidth = squareSize;
         sketchPad.appendChild(newSquare);
     }
+
+    // Need to set width and height to squareSize.
+    let gridSquareRules;
+
+    for(let i = 0; i < stylesheet.cssRules.length; i++) {
+        if(stylesheet.cssRules[i].selectorText === '.grid-square') {
+            gridSquareRules = stylesheet.cssRules[i];
+            console.log(gridSquareRules);
+        }
+    }
+
+    gridSquareRules.style.width = `${squareSize}px`;
+    gridSquareRules.style.height = `${squareSize}px`;
+
+    /* gridSquareRules.style.setProperty = ('width', `${squareSize}px`);
+    gridSquareRules.style.setProperty = ('height', `${squareSize}px`); */
+
+
+    console.log("Width = " + gridSquareRules.style.width);
+    console.log("Height = " + gridSquareRules.style.height);
+
+    console.log("Grid complete.")
+
 }
