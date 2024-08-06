@@ -51,8 +51,8 @@ let gridSize = 16;
 
 // Loop through the gridMsg node list and assign the grid size to its text content
 for (let i = 0; i < gridMsg.length; i++) {
-    gridMsg[i].textContent = `${gridSize}`;
-  }
+  gridMsg[i].textContent = `${gridSize}`;
+}
 
 /*
 HANDLE EVENTS
@@ -65,17 +65,7 @@ drawGrid(gridSize);
 gridBtn.addEventListener("click", newGrid);
 
 // Draw on the grid
-Array.from(gridSquares).forEach(square => square.addEventListener("mouseover", this.style.backgroundColor = 'black'))
-
-/* 
-() => changeColor
-function changeColor() {  
-   this.setAttribute("style", "background-color:black;")
-} */
-
-// Add click listener to button that runs an arrow function
-// rock.addEventListener("click", () => doSomething);
-
+sketchPad.addEventListener("mousedown", userDraw);
 
 /*
 DEFINE FUNCTIONS
@@ -94,77 +84,87 @@ function getRandomIndex() {
 */
 
 function newGrid() {
-    console.log("New grid button clicked.")
+  console.log("New grid button clicked.");
 
-    // Prompt user for new grid
-    let userSquares = prompt("Type the number of squares per side (max. 100):", "100");
+  // Prompt user for new grid
+  let userSquares = prompt(
+    "Type the number of squares per side (max. 100):",
+    "100"
+  );
 
-    // If cancel, allow user to return. Else if no input or value > 100, re-prompt. Else, setup grid with the value.
-    if (userSquares === null) {
-        return;
-    } else if (userSquares === "" || userSquares == 0 || userSquares > 100) {
-        newGrid();
-    } else {
-        setupGrid(userSquares);
-    }
+  // If cancel, allow user to return. Else if no input or value > 100, re-prompt. Else, setup grid with the value.
+  if (userSquares === null) {
+    return;
+  } else if (userSquares === "" || userSquares == 0 || userSquares > 100) {
+    newGrid();
+  } else {
+    setupGrid(userSquares);
+  }
 }
 
 function setupGrid(userInput) {
+  // Remove content from the existing sketch pad
+  sketchPad.innerHTML = "";
 
-    // Remove content from the existing sketch pad
-    sketchPad.innerHTML = "";
+  // Run a function that draws the new sketch pad
+  drawGrid(userInput);
 
-    // Run a function that draws the new sketch pad
-    drawGrid(userInput);
-
-    /* // Re-add rock, paper, scissors buttons
+  /* // Re-add rock, paper, scissors buttons
     buttons.appendChild(rock);
     buttons.appendChild(paper);
     buttons.appendChild(scissors); */
 
-    // Change grid message
-    for (let i = 0; i < gridMsg.length; i++) {
-        gridMsg[i].textContent = `${userInput}`;
-      }
+  // Change grid message
+  for (let i = 0; i < gridMsg.length; i++) {
+    gridMsg[i].textContent = `${userInput}`;
+  }
 
-    console.log("Finished creating new grid.")
-
+  console.log("Finished creating new grid.");
 }
 
 function drawGrid(gridSize) {
+  console.log("Drawing new grid with " + gridSize + " squares per side...");
 
-    console.log("Drawing new grid with " + gridSize + " squares per side...")
+  // Calculate the grid square size
+  let squareSize = sketchPadSize / gridSize;
+  console.log(squareSize);
 
-    // Calculate the grid square size
-    let squareSize = sketchPadSize / gridSize;
-    console.log(squareSize);
-    
-    // Create each grid square and append to the sketch pad
-    for (let i = 1; i <= gridSize ** 2; i++) {
-        let newSquare = document.createElement("div");
-        newSquare.classList.add("grid-square");
-        sketchPad.appendChild(newSquare);
+  // Create each grid square and append to the sketch pad
+  for (let i = 1; i <= gridSize ** 2; i++) {
+    let newSquare = document.createElement("div");
+    newSquare.classList.add("grid-square");
+    sketchPad.appendChild(newSquare);
+  }
+
+  // Need to set width and height to squareSize.
+  let gridSquareRules;
+
+  for (let i = 0; i < stylesheet.cssRules.length; i++) {
+    if (stylesheet.cssRules[i].selectorText === ".grid-square") {
+      gridSquareRules = stylesheet.cssRules[i];
     }
+  }
 
-    // Need to set width and height to squareSize.
-    let gridSquareRules;
+  gridSquareRules.style.width = `${squareSize}px`;
+  gridSquareRules.style.height = `${squareSize}px`;
 
-    for(let i = 0; i < stylesheet.cssRules.length; i++) {
-        if(stylesheet.cssRules[i].selectorText === '.grid-square') {
-            gridSquareRules = stylesheet.cssRules[i];
-        }
-    }
-
-    gridSquareRules.style.width = `${squareSize}px`;
-    gridSquareRules.style.height = `${squareSize}px`;
-
-    /* gridSquareRules.style.setProperty = ('width', `${squareSize}px`);
+  /* gridSquareRules.style.setProperty = ('width', `${squareSize}px`);
     gridSquareRules.style.setProperty = ('height', `${squareSize}px`); */
 
+  console.log("Width = " + gridSquareRules.style.width);
+  console.log("Height = " + gridSquareRules.style.height);
 
-    console.log("Width = " + gridSquareRules.style.width);
-    console.log("Height = " + gridSquareRules.style.height);
+  console.log("Grid complete.");
+}
 
-    console.log("Grid complete.")
+function userDraw() {
+  console.log("userDraw start");
 
+  let squares = Array.from(document.querySelectorAll('.grid-square'));
+
+  squares.forEach(square => square.addEventListener("mouseover", function ( event ) {
+      event.target.style.backgroundColor = 'black';
+  }));
+
+  console.log("userDraw end");
 }
