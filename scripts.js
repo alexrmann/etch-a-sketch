@@ -36,18 +36,19 @@ INITIALIZE PARAMETERS
 const stylesheet = document.styleSheets[0];
 console.log(stylesheet);
 
-const sketchPad = document.getElementById("sketchpad");
+const sketchPad = document.querySelector("#sketchpad");
 const sketchPadSize = sketchPad.offsetWidth;
 
-const gridMsg = document.querySelectorAll("grid-msg");
+const gridMsg = document.querySelectorAll(".grid-msg");
 
-const gridSquares = document.querySelectorAll("grid-square");
+const gridSquares = document.querySelectorAll(".grid-square");
 
 // INIT an array
 let gridArray = [];
 
 // INIT the number of grid squares per side
 let gridSize = 16;
+gridMsg.innerText = `${gridSize}`;
 
 /*
 HANDLE EVENTS
@@ -229,7 +230,7 @@ function setupGrid(userInput) {
     buttons.appendChild(scissors); */
 
     // Change grid message
-    gridMsg.textContent = userInput;
+    gridMsg.textContent = `${gridSize}`;
 
     console.log("Finished creating new grid.")
 
