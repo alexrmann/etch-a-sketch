@@ -166,8 +166,8 @@ function userDraw() {
 
     let squares = Array.from(document.querySelectorAll('.grid-square'));
 
-    squares.forEach(square => square.addEventListener("mouseover", function ( event ) {
-        event.target.style.backgroundColor = 'black';
+    squares.forEach(square => square.addEventListener("mouseover", ( e ) => {
+        e.target.style.backgroundColor = 'black';
     }));
 
     // if mousedown = false, then stop drawing
