@@ -41,7 +41,7 @@ summary,
 
 #sketchpad {
     display: flex;
-    gap: 2px;
+    flex-wrap: wrap;
     width: 960px;
     height: 960px;
     background: gray;
