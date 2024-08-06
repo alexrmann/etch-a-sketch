@@ -48,7 +48,11 @@ let gridArray = [];
 
 // INIT the number of grid squares per side
 let gridSize = 16;
-gridMsg.innerText = `${gridSize}`;
+
+// Loop through the gridMsg node list and assign the grid size to its text content
+for (let i = 0; i < gridMsg.length; i++) {
+    gridMsg[i].textContent = `${gridSize}`;
+  }
 
 /*
 HANDLE EVENTS
@@ -230,7 +234,9 @@ function setupGrid(userInput) {
     buttons.appendChild(scissors); */
 
     // Change grid message
-    gridMsg.textContent = `${gridSize}`;
+    for (let i = 0; i < gridMsg.length; i++) {
+        gridMsg[i].textContent = `${userInput}`;
+      }
 
     console.log("Finished creating new grid.")
 
