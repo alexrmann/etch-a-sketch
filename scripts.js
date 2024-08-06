@@ -251,7 +251,7 @@ function drawGrid(gridSize) {
     console.log(squareSize);
     
     // Create each grid square and append to the sketch pad
-    for (let i = 1; i <= gridSize; i++) {
+    for (let i = 1; i <= gridSize ** 2; i++) {
         let newSquare = document.createElement("div");
         newSquare.classList.add("grid-square");
         sketchPad.appendChild(newSquare);
