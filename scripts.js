@@ -160,11 +160,23 @@ function drawGrid(gridSize) {
 function userDraw() {
   console.log("userDraw start");
 
-  let squares = Array.from(document.querySelectorAll('.grid-square'));
+    // Need to add logic, 
+    
+    // if mousedown = true, then draw
 
-  squares.forEach(square => square.addEventListener("mouseover", function ( event ) {
-      event.target.style.backgroundColor = 'black';
-  }));
+    let squares = Array.from(document.querySelectorAll('.grid-square'));
+
+    squares.forEach(square => square.addEventListener("mouseover", function ( event ) {
+        event.target.style.backgroundColor = 'black';
+    }));
+
+    // if mousedown = false, then stop drawing
+
+   /*  if (mousedown = true) {
+        draw
+    } else {
+        stop drawing
+    } */
 
   console.log("userDraw end");
 }
