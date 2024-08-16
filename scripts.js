@@ -167,14 +167,14 @@ function userDraw() {
   let squares = Array.from(document.querySelectorAll(".grid-square"));
 
   squares.forEach((square) =>
-    square.addEventListener("mousemove", (e) => {
+    square.addEventListener("mouseenter", (e) => {
       // Store value of current css opacity
       // NEED TO CHECK WHAT DATA TYPE THIS RETURNS
       let currentOpacity = e.target.style.opacity;
 
-      // Add 10% to current opacity
-      e.target.style.opacity = currentOpacity + 0.1;
       e.target.style.backgroundColor = "black";
+      // Add 10% to current opacity
+      e.target.style.opacity = Number(currentOpacity) + 0.1;
     })
   );
 
