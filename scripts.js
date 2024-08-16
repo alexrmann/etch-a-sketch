@@ -158,21 +158,29 @@ function drawGrid(gridSize) {
 }
 
 function userDraw() {
-  console.log("userDraw start");
+  console.log("userDraw start");  
 
-    // Need to add logic, 
-    
-    // if mousedown = true, then draw
+  // Need to add logic,
 
-    let squares = Array.from(document.querySelectorAll('.grid-square'));
+  // if mousedown = true, then draw
 
-    squares.forEach(square => square.addEventListener("mousemove", ( e ) => {
-        e.target.style.backgroundColor = 'black';
-    }));
+  let squares = Array.from(document.querySelectorAll(".grid-square"));
 
-    // if mousedown = false, then stop drawing
+  squares.forEach((square) =>
+    square.addEventListener("mouseenter", (e) => {
+      // Store value of current css opacity
+      // NEED TO CHECK WHAT DATA TYPE THIS RETURNS
+      let currentOpacity = e.target.style.opacity;
 
-   /*  if (mousedown = true) {
+      e.target.style.backgroundColor = "black";
+      // Add 10% to current opacity
+      e.target.style.opacity = Number(currentOpacity) + 0.1;
+    })
+  );
+
+  // if mousedown = false, then stop drawing
+
+  /*  if (mousedown = true) {
         draw
     } else {
         stop drawing
